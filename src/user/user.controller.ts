@@ -10,6 +10,7 @@ import {
   Put,
   // UseInterceptors,
 } from '@nestjs/common';
+import { ParamId } from 'src/decorators/param-id.decorator';
 //import { LogInterceptor } from 'src/interceptors/log.interceptor';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdatePatchUserDTO } from './dto/update-patch-user.dto';
@@ -33,7 +34,8 @@ export class UserController {
 
   @Get(':id')
   //Tem que botar o decoretor Param para recuperar o ID
-  async show(@Param('id', ParseIntPipe) id: number) {
+  async show(@ParamId() id: number) {
+    console.log({ id });
     return this.userService.show(id);
   }
 
