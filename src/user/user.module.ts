@@ -14,7 +14,7 @@ import { UserService } from './user.service';
   imports: [PrismaModule], //informacoes que quer importar(geralmente modules)
   controllers: [UserController],
   providers: [UserService], // classes que vao prover um serviço( tem injectable)
-  exports: [], //recursos que tem no module que deseja importar
+  exports: [UserService], //recursos que tem no module que deseja importar
 })
 export class UserModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
